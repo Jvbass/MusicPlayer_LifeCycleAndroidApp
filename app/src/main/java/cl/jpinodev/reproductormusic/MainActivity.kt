@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.playPreviousButton.setOnClickListener { playPreviousSong() }
+
+        updateLyrics()
     }
 
     override fun onStart() {
@@ -144,6 +146,7 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = MediaPlayer.create(this, currentSong.audioResId)
         mediaPlayer?.start()
         updateUISong()
+        updateLyrics()
     }
 
     private fun playPreviousSong() {
@@ -158,5 +161,12 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.start()
         isPlaying = true
         updateUISong()
+        updateLyrics()
+    }
+
+    private fun updateLyrics(){
+        binding.lyricsTextView?.setText(currentSong.lyricsResId)
+        // binding.albumCoverImageView.setImageResource(currentSong.imageResId) //actualizamos la imagen de la portada del álbum
+
     }
 } // end of MainActivity

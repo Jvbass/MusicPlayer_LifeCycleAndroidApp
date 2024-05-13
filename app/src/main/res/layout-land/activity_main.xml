@@ -88,7 +88,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintVertical_bias="1.0">
+
         <TextView
                 android:id="@+id/lyricsTextView"
                 android:layout_width="match_parent"
@@ -96,8 +99,7 @@
                 android:textAlignment="textStart"
                 android:text="@string/painkiller"
                 android:textColor="@color/white"
-                android:layout_marginTop="15dp"
-                />
+                android:layout_marginTop="15dp" />
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

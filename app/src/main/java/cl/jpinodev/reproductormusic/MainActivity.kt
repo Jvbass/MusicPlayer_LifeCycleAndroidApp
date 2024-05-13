@@ -57,12 +57,13 @@ class MainActivity : AppCompatActivity() {
         Log.i(LOG_MAIN_ACTIVITY, "Estoy en onStart()")
         mediaPlayer = MediaPlayer.create(this, currentSong.audioResId)
         mediaPlayer?.seekTo(position)
-        if(isPlaying){
+       /* if(isPlaying){*/
             mediaPlayer?.start()
             isPlaying = true
-        } else {
+        updatePlayPauseButton()
+      /*  } else {
             isPlaying = false
-        }
+        }*/
     }
 
     override fun onResume() {
@@ -145,8 +146,9 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer?.release()
         mediaPlayer = MediaPlayer.create(this, currentSong.audioResId)
         mediaPlayer?.start()
-        updateUISong()
-        updateLyrics()
+        updateUISong()//actualizamos la portada del álbum y el título de la canción
+        updateLyrics()//actualizamos la letra de la canción
+        isPlaying = !isPlaying
     }
 
     private fun playPreviousSong() {
@@ -162,6 +164,7 @@ class MainActivity : AppCompatActivity() {
         isPlaying = true
         updateUISong()
         updateLyrics()
+        isPlaying = !isPlaying
     }
 
     private fun updateLyrics(){
